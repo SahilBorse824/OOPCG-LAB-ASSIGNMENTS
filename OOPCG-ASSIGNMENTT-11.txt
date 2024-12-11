@@ -1,3 +1,18 @@
+#ASSIGNMENT-11
+
+
+
+TITLE:- WRITE A C++ PROGRAM TO DRAW 2D OBJECT AND PERFORM FOLLOWING BASIC TRANSFORMATIONS:
+	1) 2D SCALING.
+	2) 2D TRANSLATION.
+	3) 2D ROTATION..
+	APPLY THE CONCEPT OF OPERATOR OVERLOADING.
+
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h>
 #include<conio.h>
 #include<graphics.h>
@@ -162,3 +177,5 @@ int main()
 	getch();
 	return 0;
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
