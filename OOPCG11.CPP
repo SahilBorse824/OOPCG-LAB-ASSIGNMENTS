@@ -1,0 +1,164 @@
+#include<iostream.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+#include<math.h>
+#include<dos.h>
+
+float imat[3][3]={{1,0,0},{0,1,0},{0,0,1}};
+class matrix
+{
+	float sx,sy,tx,ty,ang;
+public:
+	float a[3][3];
+	matrix()
+	{
+	}
+	void sets(float x,float y)
+	{
+		sx=x;
+		sy=y;
+		imat[0][0]=sx;
+		imat[1][1]=sy;
+
+	}
+	void seta(float a)
+	{
+		ang=a;
+		imat[0][0]=cos((3.142/180)*ang);
+		imat[0][1]=sin((3.142/180)*ang);
+		imat[1][0]=-sin((3.142/180)*ang);
+		imat[1][1]=cos((3.142/180)*ang);
+		imat[2][0]=0;
+		imat[2][1]=0;
+	}
+	void sett(float x1,float y1)
+	{
+		tx=x1;
+		ty=y1;
+		imat[0][1]=tx;
+		imat[1][1]=ty;
+	}
+	matrix operator*(matrix &m)
+	{
+		matrix c;
+		int i=0,j=0,k=0;
+		for(i=0;i<3;i++)
+			for(j=0;j<3;j++)
+				for(k=0;k<3;k++)
+					c.a[i][j]=c.a[i][j] + a[i][k]*imat[k][j];
+		return c;
+	}
+	matrix operator+(matrix &m)
+	{
+		matrix c;
+		int i=0,j=0,k=0;
+		for(i=0;i<3;i++)
+			for(j=0;j<3;j++)
+				for(k=0;k<3;k++)
+					c.a[i][j]=c.a[i][j] + a[i][k]+imat[k][j];
+		return c;
+	}
+	matrix operator-(matrix &m)
+	{
+		matrix c;
+		int i=0,j=0,k=0;
+		for(i=0;i<3;i++)
+			for(j=0;j<3;j++)
+				for(k=0;k<3;k++)
+					c.a[i][j]=c.a[i][j] + a[i][k]-imat[k][j];
+		return c;
+	}
+	matrix operator/(matrix &m)
+	{
+		matrix c;
+		int i=0,j=0,k=0;
+		for(i=0;i<3;i++)
+			for(j=0;j<3;j++)
+				for(k=0;k<3;k++)
+					c.a[i][j]=c.a[i][j] + a[i][k]/imat[k][j];
+		return c;
+	}
+};
+int main()
+{
+	clrscr();
+	float sx,sy,tx,ty,angle;
+	int choice;
+	char ans;
+	int xmid=320,ymid=240;
+	int gd=DETECT,gm;
+	initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+	setcolor(WHITE);
+	line(320,0,320,480);
+	setcolor(WHITE);
+	line(0,240,640,240);
+
+	matrix d,w;
+	setcolor(WHITE);
+	line(50+xmid,ymid-40,70+xmid,ymid-90);
+	setcolor(WHITE);
+	line(90+xmid,ymid-40,50+xmid,ymid-40);
+	setcolor(WHITE);
+	line(xmid+70,ymid-90,xmid+90,ymid-40);
+
+	d.a[0][0]=50;
+	d.a[0][1]=40;
+	d.a[0][2]=1;
+	d.a[1][0]=70;
+	d.a[1][1]=90;
+	d.a[1][2]=1;
+	d.a[2][0]=90;
+	d.a[2][1]=40;
+	d.a[2][2]=1;
+
+	do
+	{
+		cout<<"\n1.Scaling\n2.Translation\n3.Rotation\n.4.End\n5.Enter choice";
+		cin>>choice;
+		switch (choice)
+		{
+			case 1:
+				cout<<"Enter scaling factors:"<<endl;
+				cout<<"sx:";
+				cin>>sx;
+				cout<<"sy:";
+				cin>>sy;
+				d.sets(sx,sy);
+				w=d*d;
+				setcolor(YELLOW);
+		line(xmid+w.a[0][0],ymid-w.a[0][1],xmid+w.a[1][0],ymid-w.a[1][1]);
+		line(xmid+w.a[1][0],ymid-w.a[1][1],xmid+w.a[2][0],ymid-w.a[2][1]);
+		line(xmid+w.a[2][0],ymid-w.a[2][1],xmid+w.a[0][0],ymid-w.a[0][1]);
+				break;
+			case 2:
+				cout<<"Enter translation factors:"<<endl;
+				cout<<"Tx:";
+				cin>>tx;
+				cout<<"Ty:";
+				cin>>ty;
+				d.sett(tx,ty);
+				w=d+d;
+				setcolor(BLUE);
+		line(xmid+w.a[0][0],ymid-w.a[0][1],xmid+w.a[1][0],ymid-w.a[1][1]);
+		line(xmid+w.a[1][0],ymid-w.a[1][1],xmid+w.a[2][0],ymid-w.a[2][1]);
+		line(xmid+w.a[2][0],ymid-w.a[2][1],xmid+w.a[0][0],ymid-w.a[0][1]);
+				break;
+			case 3:
+				cout<<"Enter rotation angle(+/-):";
+				cin>>angle;
+				d.seta(angle);
+				w=d/d;
+				setcolor(RED);
+		line(xmid+w.a[0][0],ymid-w.a[0][1],xmid+w.a[1][0],ymid-w.a[1][1]);
+		line(xmid+w.a[1][0],ymid-w.a[1][1],xmid+w.a[2][0],ymid-w.a[2][1]);
+		line(xmid+w.a[2][0],ymid-w.a[2][1],xmid+w.a[0][0],ymid-w.a[0][1]);
+				break;
+		 }
+	}
+	while(choice!=4);
+	delay(1000);
+	closegraph();
+	getch();
+	return 0;
+}
