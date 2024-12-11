@@ -1,3 +1,12 @@
+#ASSIGNMENT-05
+
+
+TITLE:- WRITE A FUNCTION TEMPLATE FOR SELECTION SORT THAT INPUTS,SORTS AND OUTPUTS AN INTEGER ARRAY AND A FLOAT ARRAY.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include <iostream.h> 
 #include <conio.h> 
  
@@ -58,3 +67,5 @@ printArray(floatArr, floatSize);
  
 getch(); 
 } 
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
