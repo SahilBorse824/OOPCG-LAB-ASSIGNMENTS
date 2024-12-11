@@ -1,3 +1,16 @@
+# ASSIGNMENT-01
+
+TITLE:- IMPLEMENT A CLASS COMPLEX WHICH REPRESENTS THE COMPLEX NUMBER DATA TYPE. IMPLEMENT THE FOLLOWING:
+        1) CONSTRUCTOR(INCLUDING A DEFAULT CONSTRUCTOR WHICH CREATES THE COMPLEX NUMBER 0+0i)
+        2) OVERLOAD OPERATOR + TO ADD TWO COMPLEX NUMBERS.
+        3) OVERLOAD OPERATOR - TO SUBTRACT TWO COMPLEX NUMBERS.
+        4) OVERLOAD OPERATOR * TO MULTIPLY TWO COMPLEX NUMBERS.
+        5) OVERLOAD OPERATOR / TO DIVIDE TWO COMPLEX NUMBERS.
+        6) OVERLOAD OPERATORS << AND >> TO PRINT AND READ COMPLEX NUMBERS.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 #include<iostream.h>
 #include<conio.h>
 class complex
@@ -89,3 +102,5 @@ cout<<"\n Division of two complex number is:";
 div.display();
 getch();
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
