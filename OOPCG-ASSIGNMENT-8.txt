@@ -1,3 +1,12 @@
+#ASSIGNMENT-08
+
+
+TITLE:- DEVELOP A C++ PROGRAM TO DRAW A CONCAVE POLYGON AND FILL IT WITH DESIRED COLOR USING SCAN FILL ALGORITHM. APPLY THE CONCEPT OF INHERITANCE.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h>
 #include<conio.h>
 #include<graphics.h>
@@ -135,3 +144,5 @@ int main()
   closegraph();
   return 0;
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
