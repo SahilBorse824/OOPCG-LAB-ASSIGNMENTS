@@ -14,6 +14,7 @@ CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 class point
 {
 public:
+//TBRL
 int x,y;
 int code[4];
 void setcode(int xmin,int xmax,int ymin,int ymax)
@@ -43,6 +44,10 @@ line(xmax,ymin,xmax,ymax);
 line(xmin,ymin,xmax,ymin);
 line(xmin,ymax,xmax,ymax);
 }
+// RETURN 0 IF LINE COMPLETELY VISIBLE
+// RETURN 1 IF LINE COMPLETELY INVISIBLE
+// RETURN 2 OTHERWISE
+
 int check(point p1,point p2)
 {
 int flag=0;
@@ -52,7 +57,7 @@ if(p1.code[i]!=0 || p2.code[i]!=0)
 	flag=1;
 }
 if(flag==0)
-	return 0;
+	return 0;   // BOTH BOINTS ARE COMPLETELY INSIDE
 flag=0;
 for(int j=0;j<4;j++)
 {
@@ -60,19 +65,21 @@ if(p1.code[j]==1&&p2.code[j]==1)
 	flag=1;
 }
 if(flag==1)
-	return 1;
-return 2;
+	return 1;     // BOTH POINTS ARE COMPLETELY OUTSIDE
+return 2;   // PARTIALLY INSIDE AND PARTIALLY OUTSIDE
 }
 point clipping(point p1,point p2,int xmin,int xmax,int ymin,int ymax)
 {
 float m;
 point pi;
+// LEFT AND RIGHT EDGES
 if(p1.code[2]==1)
 	pi.x=xmax;
 if(p1.code[3]==1)
 	pi.x=xmin;
 if(p1.code[3]==1 || p1.code[2]==1)
 {
+// TO FIND SLOPE OF THE LINE
 m=(float)(p2.y-p1.y)/(p2.x-p1.x);
 pi.y=p1.y+m*(pi.x-p1.x);
 for(int i=0;i<4;i++)
@@ -80,12 +87,14 @@ for(int i=0;i<4;i++)
 if(pi.y<=ymax&&pi.y>=ymin)
 	return pi;
 }
+// TOP AND BOTTOM EDGES
 if(p1.code[0]==1)
 	pi.y=ymin;
 if(pi.code[1]==1)
 	pi.y=ymax;
 if(p1.code[0]==1 || p1.code[1]==1)
 {
+// TO FIND SLOPE OF THE LINE
 m=(float)(p2.y-p1.y)/(p2.x-p1.x);
 pi.x=p1.x+(pi.y-p1.y)/m;
 for(int i=0;i<4;i++)
@@ -107,8 +116,8 @@ cin>>pe.x>>pe.y;
 int xmin=100,xmax=300,ymin=100,ymax=200;
 int gd=DETECT,gm;
 initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
-ps.setcode(xmin,xmax,ymin,ymax);
-pe.setcode(xmin,xmax,ymin,ymax);
+ps.setcode(xmin,xmax,ymin,ymax);  // SET CODE FOR PS
+pe.setcode(xmin,xmax,ymin,ymax);  // SET CODE FOR PE
 int value=check(ps,pe);
 switch (value)
 {
@@ -140,15 +149,15 @@ case 2:
 	delay(3000);
 	cleardevice();
 	outtextxy(50,50,"After clipping");
-	p3=clipping(ps,pe,xmin,xmax,ymin,ymax);
-	p4=clipping(pe,ps,xmin,xmax,ymin,ymax);
+	p3=clipping(ps,pe,xmin,xmax,ymin,ymax);  // P3 IS CLIPPED POINT FOR FIRST INTERFACE
+	p4=clipping(pe,ps,xmin,xmax,ymin,ymax);  // P4 IS CLIPPED POINT FOR SECOND INTERFACE
 	drawwindow(xmin,xmax,ymin,ymax);
 	line(p3.x,p3.y,p4.x,p4.y);
 	break;
 default:
 	cout<<".....";
 	break;
-}
+}  // END OF SWITCH
 getch();
 closegraph();
 return 0;
