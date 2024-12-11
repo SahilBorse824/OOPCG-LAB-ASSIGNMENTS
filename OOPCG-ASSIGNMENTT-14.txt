@@ -1,3 +1,12 @@
+#ASSIGNMENT-14
+
+
+TITLE:- WRITE A C++ PROGRAM TO CONTROL A BALL USING ARROW KEYS. APPLY THE CONCEPT OF POLYMORPHISM AND ALSO ASCII VALUES OF ARROW KEYS AVAILABLE ON KEYBOARD.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -43,3 +52,5 @@ cleardevice();
 }
 }
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
