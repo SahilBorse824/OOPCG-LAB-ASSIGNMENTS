@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+#include<graphics.h>
+class dda
+{
+int x1,y1,x2,y2;
+public:
+void drawline(int x1,int x2,int y1,int y2)
+{
+int x,y,dx,dy,step,xinc,yinc;
+dx=x2-x1;
+dy=y2-y1;
+}
+};  //end of class
+
+void main()
+{
+clrscr();
+dda d1;
+d1.drawline(220,230,350,100);
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"c:\\TURBOC3\\BGI");
+putpixel(100,250,WHITE);      //pixel plotting
+setcolor(15);
+
+//plotting triangle with 2 circles
+
+line(40,200,200,200);
+line(40,200,120,90);
+line(200,200,120,90);
+circle(120,175,85);
+circle(120,160,40);
+
+//plotting rectangles with circle
+
+line(400,100,625,100);
+line(400,100,400,250);
+line(625,100,625,250);
+line(400,250,625,250);
+line(515,100,400,170);
+line(515,100,625,170);
+line(400,170,515,250);
+line(625,170,515,250);
+circle(515,174,60);
+getch();
+closegraph();
+restorecrtmode();
+} // end of program
