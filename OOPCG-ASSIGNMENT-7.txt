@@ -1,3 +1,12 @@
+#ASSIGNMENT-07
+
+
+TITLE:-WRITE A C++ PROGRAM TO PERFORM VARIOUS OPERATIONS ON MAP ASSOCIATIVE CONTAINER.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream> 
 #include<map> 
 #include<string> 
@@ -28,3 +37,5 @@ std::cout<<country<<" ’s population is"<<iter->second<<Million \n"
 else 
 std::cout<<"Key is not in populationmap"<<"\n"; 
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
