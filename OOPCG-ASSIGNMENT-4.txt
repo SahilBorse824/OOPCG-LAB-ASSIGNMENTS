@@ -1,3 +1,12 @@
+# ASSIGNMENT-04
+
+
+TITLE:- WRITE A C++ PROGRAM THAT CREATES AN OUTPUT FILE, WRITES INFORMATION TO IT, CLOSES THE FILE, OPEN IT AGAIN AS AN INPUT FILE AND READ THE INFORMATION FROM THE FILE.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h>
 #include<conio.h>
 #include<fstream.h>
@@ -46,3 +55,5 @@ f.close();
 getch();
 return 0;
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
