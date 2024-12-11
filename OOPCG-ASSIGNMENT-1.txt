@@ -17,8 +17,8 @@ class complex
 {
 double real,imaginary;
 public:
-complex(){}
-complex(double r,double i)
+complex(){}    // DEFAULT CONSTRUCTOR
+complex(double r,double i)    // PARAMETERIZED CONSTRUCTOR
 {
 real=r;
 imaginary=i;
