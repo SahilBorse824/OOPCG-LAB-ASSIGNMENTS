@@ -62,7 +62,7 @@ cout<<"\ndata of birth:"<<dob;
 cout<<"\nClass and division:"<<cldiv;
 cout<<"\nLicence number:"<<lic;
 }
-data::data(int roll,long int phone,char name[],char address[],char dob[],char cldiv[],char lic[])
+data::data(int roll,long int phone,char name[],char address[],char dob[],char cldiv[],char lic[])    //PARAMETERIZED CONSTRUCTOR
 {
 cout<<"\nParameterized contructor";
 c++;
@@ -74,7 +74,7 @@ strcpy(this->dob,dob);
 strcpy(this->cldiv,cldiv);
 strcpy(this->lic,lic);
 }
-data::data()
+data::data()        // DEFAULT CONSTRUCTOR
 {
 roll=0;
 phone=0;
