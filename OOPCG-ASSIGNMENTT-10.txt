@@ -1,3 +1,12 @@
+#ASSIGNMENT-10
+
+
+TITLE:- WRITE A C++ PROGRAM TO DRAW THE FOLLOWING PATTERN. USE DDA LINE AND BRESENHAM'S CIRCLE DRAWING ALGORITHM. APPLY THE CONCEPT OF ENCAPSULATION.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h>
 #include<conio.h>
 #include<math.h>
@@ -47,3 +56,5 @@ getch();
 closegraph();
 restorecrtmode();
 } // end of program
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
