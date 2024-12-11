@@ -1,0 +1,30 @@
+#include<iostream> 
+#include<map> 
+#include<string> 
+#include<utility> 
+using namespace std; 
+ 
+int main() 
+{ 
+typedef map<string,int>maptype; 
+maptype populationmap; 
+populationmap.insert(pair<String,int>("China,1339)); 
+populationmap.insert(pair<String,int>("India",1187)); 
+populationmap.insert(maptype::value_typoe("US",310)); 
+populationmap.insert(maptype::value_type("Indoneshia",234)); 
+populationmap.insert(make_pair("Brazil",193)); 
+std::cout<<"Size of populationmap:"<<populationmap.size()<<"\n"; 
+maptype::iterator iter= --populationmap.end(); 
+populationmap.erase(iter); 
+std::cout<<"Size of population map:"<<populationmap.size()<<"\n"; 
+for(iter=populationmap begin(); iter!=populationmap.end(); ++iter) 
+{ 
+std::cout<<iter->first<<":"<<iter->second<<Million \n"; 
+} 
+string country=Brazil"; 
+iter=populationmap.find(country); 
+if(iter!=populationmap.end()) 
+std::cout<<country<<" ’s population is"<<iter->second<<Million \n" 
+else 
+std::cout<<"Key is not in populationmap"<<"\n"; 
+}
