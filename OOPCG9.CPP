@@ -1,0 +1,146 @@
+#include<iostream.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+class point
+{
+public:
+int x,y;
+int code[4];
+void setcode(int xmin,int xmax,int ymin,int ymax)
+{
+if(x<xmin)
+	code[3]=1;
+else
+	code[3]=0;
+if(x>xmax)
+	code[2]=1;
+else
+	code[2]=0;
+if(y>ymax)
+	code[1]=1;
+else
+	code[1]=0;
+if(y<ymin)
+	code[0]=1;
+else
+	code[0]=0;
+}
+};
+void drawwindow(int xmin,int xmax,int ymin,int ymax)
+{
+line(xmin,ymax,xmin,ymin);
+line(xmax,ymin,xmax,ymax);
+line(xmin,ymin,xmax,ymin);
+line(xmin,ymax,xmax,ymax);
+}
+int check(point p1,point p2)
+{
+int flag=0;
+for(int i=0;i<4;i++)
+{
+if(p1.code[i]!=0 || p2.code[i]!=0)
+	flag=1;
+}
+if(flag==0)
+	return 0;
+flag=0;
+for(int j=0;j<4;j++)
+{
+if(p1.code[j]==1&&p2.code[j]==1)
+	flag=1;
+}
+if(flag==1)
+	return 1;
+return 2;
+}
+point clipping(point p1,point p2,int xmin,int xmax,int ymin,int ymax)
+{
+float m;
+point pi;
+if(p1.code[2]==1)
+	pi.x=xmax;
+if(p1.code[3]==1)
+	pi.x=xmin;
+if(p1.code[3]==1 || p1.code[2]==1)
+{
+m=(float)(p2.y-p1.y)/(p2.x-p1.x);
+pi.y=p1.y+m*(pi.x-p1.x);
+for(int i=0;i<4;i++)
+	pi.code[i]=p1.code[i];
+if(pi.y<=ymax&&pi.y>=ymin)
+	return pi;
+}
+if(p1.code[0]==1)
+	pi.y=ymin;
+if(pi.code[1]==1)
+	pi.y=ymax;
+if(p1.code[0]==1 || p1.code[1]==1)
+{
+m=(float)(p2.y-p1.y)/(p2.x-p1.x);
+pi.x=p1.x+(pi.y-p1.y)/m;
+for(int i=0;i<4;i++)
+	pi.code[i]=p1.code[i];
+if(pi.x<=xmax&&pi.x>=xmin)
+	return pi;
+}
+else
+	return p1;
+}
+int main()
+{
+clrscr();
+point ps,pe,p3,p4;
+cout<<"Enter x and y coordinates of start point of line:";
+cin>>ps.x>>ps.y;
+cout<<"Enter x and y coordinates of end point of line:";
+cin>>pe.x>>pe.y;
+int xmin=100,xmax=300,ymin=100,ymax=200;
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+ps.setcode(xmin,xmax,ymin,ymax);
+pe.setcode(xmin,xmax,ymin,ymax);
+int value=check(ps,pe);
+switch (value)
+{
+case 0:
+	outtextxy(50,50,"Before clipping");
+	rectangle(xmin,ymin,xmax,ymax);
+	delay(3000);
+	line(ps.x,ps.y,pe.x,pe.y);
+	delay(3000);
+	cleardevice();
+	outtextxy(50,50,"After clipping");
+	drawwindow(xmin,xmax,ymin,ymax);
+	line(ps.x,ps.y,pe.x,pe.y);
+	break;
+case 1:
+	outtextxy(50,50,"Before clipping");
+	drawwindow(xmin,xmax,ymin,ymax);
+	delay(3000);
+	line(ps.x,ps.y,pe.x,pe.y);
+	delay(3000);
+	cleardevice();
+	outtextxy(50,50,"After clipping");
+	drawwindow(xmin,xmax,ymin,ymax);
+	break;
+case 2:
+	outtextxy(50,50,"Before clipping");
+	drawwindow(xmin,xmax,ymin,ymax);
+	line(ps.x,ps.y,pe.x,pe.y);
+	delay(3000);
+	cleardevice();
+	outtextxy(50,50,"After clipping");
+	p3=clipping(ps,pe,xmin,xmax,ymin,ymax);
+	p4=clipping(pe,ps,xmin,xmax,ymin,ymax);
+	drawwindow(xmin,xmax,ymin,ymax);
+	line(p3.x,p3.y,p4.x,p4.y);
+	break;
+default:
+	cout<<".....";
+	break;
+}
+getch();
+closegraph();
+return 0;
+}
