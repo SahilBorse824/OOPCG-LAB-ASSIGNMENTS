@@ -1,3 +1,13 @@
+#ASSIGNMENT-06
+
+
+TITLE:- WRITE A C++ PROGRAM USING STL FOR SORTING AND SEARCHING USER DEFINED RECORDS SUCH AS ITEM RECORDS (ITEM CODE,NAME,COST QUANTITY,ETC.) USING VECTOR       
+        CONTAINER.
+
+
+CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 #include<iostream.h> 
 #include<algorithm.h> 
 #include<vector> 
@@ -124,3 +134,5 @@ o1.erase(p);
 std::cout<<"\n deleted"; 
 } 
 }
+
+#END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
