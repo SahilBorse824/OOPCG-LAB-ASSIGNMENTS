@@ -9,56 +9,52 @@ CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #include<iostream.h>
 #include<conio.h>
-#include<stdio.h>
 #include<graphics.h>
 #include<math.h>
+#include<stdio.h>
 #include<dos.h>
-#define SIN .86682540 //sin(60 degrees)
-void koch(int x1,int y1,int x2,int y2,int m)
+void kochcurve(int x1,int y1,int x2,int y2,int depth)  
 {
-	int xx,yy,x[5],y[5],lx,ly,offx=50,offy=300;
-	lx=(x2-x1)/3;
-	ly=(y2-y1)/3;
-	x[0]=x1;
-	y[0]=y1;
-	x[4]=x2;
-	y[4]=y2;
-	x[1]=x[0]+lx;
-	y[1]=y[0]+ly;
-	x[3]=x[0]+2*lx;
-	y[3]=y[0]+2*ly;
-	xx=x[3]-x[1];
-	yy=y[3]-y[1];
-	x[2]=xx*(0.5)+yy*(SIN);
-	y[2]=xx*(SIN)+yy*(0.5);
-	x[2]=x[2]+x[1];
-	y[2]=y[2]+y[1];
-	if(m>0)
-	{
-		koch(x[0],y[0],x[1],y[1],m-1);
-		koch(x[1],y[1],x[2],y[2],m-1);
-		koch(x[2],y[2],x[3],y[3],m-1);
-		koch(x[3],y[3],x[4],y[4],m-1);
-	}
-	else
-	{
-		line(offx+x[0],offy+y[0],offx+x[1],offy+y[1]);
-		line(offx+x[1],offy+y[1],offx+x[2],offy+y[2]);
-		line(offx+x[2],offy+y[2],offx+x[3],offy+y[3]);
-		line(offx+x[3],offy+y[3],offx+x[4],offy+y[4]);
-	}
+if(depth==0)   
+{
+line(x1,y1,x2,y2);
+return;
+}
+int deltax=x2-x1;    
+int deltay=y2-y1;
+if(deltax==0&&deltay==0)    
+{
+return;
+}
+int xa=x1+deltax/3;   
+int ya=y1+deltay/3;
+int xb=x1+2*deltax/3;
+int yb=y1+2*deltay/3;
+double angle=atan2(deltay,deltax);  
+int length=sqrt(deltax*deltax+deltay*deltay); 
+int xc=(int)(xa+cos(angle-M_PI/3)*(length/3));
+int yc=(int)(ya+sin(angle-M_PI/3)*(length/3));
+kochcurve(x1,y1,xa,ya,depth-1);   
+kochcurve(xa,ya,xc,yc,depth-1);
+kochcurve(xc,yc,xb,yb,depth-1);
+kochcurve(xb,yb,x2,y2,depth-1);
 }
 int main()
 {
-	clrscr();
-	int n;
-	int gd=DETECT,gm;
-	initgraph(&gd,&gm,"c:\\TURBOC3\\BGI");
-	cout<<"Enter the level of curve generation:";
-	cin>>n;
-	koch(0,0,550,0,n);
-	getch();
-	return 0;
+clrscr();
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+int depth;
+cout<<"Enter the depth of curve generation:";
+cin>>depth;
+int x1=50,y1=450;
+int x2=150,y2=450;
+kochcurve(x1,y1,x2,y2,depth);   // bottom side
+kochcurve(x2,y2,(x1+x2)/2,y1-400,depth);      //right side
+kochcurve((x1+x2)/2,y1-400,x1,y1,depth);  // left side
+getch();
+closegraph();
+return 0;
 }
 
 #END OF CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
